@@ -96,9 +96,15 @@ protected:
 	///users can point to their objects, m_userPointer is not used by Bullet, see setUserPointer/getUserPointer
 
 	void* m_userObjectPointer;
+<<<<<<< HEAD
 
 	int m_userIndex2;
 
+=======
+
+	int m_userIndex2;
+
+>>>>>>> f2177f1cf49e976c895ef4e4b943eabd966a9ba6
 	int m_userIndex;
 
 	int m_userIndex3;
@@ -166,6 +172,11 @@ public:
 		return ((m_collisionFlags & (CF_STATIC_OBJECT | CF_KINEMATIC_OBJECT | CF_NO_CONTACT_RESPONSE)) == 0);
 	}
 
+	virtual const btVector3& getCenterOfMassPosition() const
+	{
+		return m_worldTransform.getOrigin();
+	}
+	
 	const btVector3& getAnisotropicFriction() const
 	{
 		return m_anisotropicFriction;

@@ -23,9 +23,21 @@ IF (INTERNAL_ADD_POSTFIX_EXECUTABLE_NAMES)
 			SET_TARGET_PROPERTIES(Test_btKinematicCharacterController PROPERTIES  RELWITHDEBINFO_POSTFIX "_RelWithDebugInfo")
 ENDIF(INTERNAL_ADD_POSTFIX_EXECUTABLE_NAMES)
 
+<<<<<<< HEAD
 LINK_LIBRARIES(BulletWorldImporter)
 
 ADD_EXECUTABLE(Test_deterministic_save_and_restore test_deterministic_save_and_restore.cpp)
+=======
+LINK_LIBRARIES(BulletDynamics BulletCollision LinearMath gtest BulletWorldImporter BulletFileLoader)
+
+IF (NOT WIN32)
+	LINK_LIBRARIES(pthread)
+ENDIF()
+
+ADD_EXECUTABLE(Test_deterministic_save_and_restore test_deterministic_save_and_restore.cpp
+		../../Extras/Serialize/BulletWorldImporter/btBulletWorldImporter.cpp
+		../../Extras/Serialize/BulletWorldImporter/btWorldImporter.cpp)
+>>>>>>> f2177f1cf49e976c895ef4e4b943eabd966a9ba6
 
 ADD_TEST(Test_DeterministicSaveRestore_PASS Test_deterministic_save_and_restore)
 
@@ -34,3 +46,7 @@ IF (INTERNAL_ADD_POSTFIX_EXECUTABLE_NAMES)
 			SET_TARGET_PROPERTIES(Test_deterministic_save_and_restore PROPERTIES  MINSIZEREL_POSTFIX "_MinsizeRel")
 			SET_TARGET_PROPERTIES(Test_deterministic_save_and_restore PROPERTIES  RELWITHDEBINFO_POSTFIX "_RelWithDebugInfo")
 ENDIF(INTERNAL_ADD_POSTFIX_EXECUTABLE_NAMES)
+<<<<<<< HEAD
+=======
+
+>>>>>>> f2177f1cf49e976c895ef4e4b943eabd966a9ba6
